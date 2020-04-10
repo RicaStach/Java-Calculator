@@ -1,0 +1,27 @@
+name: Application CI
+on: pull_request
+
+jobs:
+    applications:
+        name: java-calculator test suite
+        runs-on: ubuntu-latest
+        timeout-minutes: 40
+        steps:
+            - uses: actions/setup-java@v1
+              name: prepare java
+              with:
+                java-version: '11.x'
+            - uses: actions/checkout@v1
+              name: check out
+            - name: clean
+              run: |
+                 mvn -ntp clean
+            - name: validate
+              run: |
+                 mvn -ntp validate
+            - name: compile
+              run: |
+                 mvn -ntp compile -Dmaven.test.skip=true -Djacoco.skip=true -Dcheckstyle.skip=true
+            - name: test and code coverage
+              run: |
+                 mvn -ntp test -Dcheckstyle.skip=true
