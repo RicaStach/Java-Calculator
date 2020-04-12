@@ -122,34 +122,34 @@
                                </dependency>
                            </dependencies> -->
                            <configuration>
-                               <violationSeverity>warning</violationSeverity>
-                               <configLocation>checkstyle.xml</configLocation>
-                               <failsOnError>true</failsOnError>
-                               <failOnViolation>true</failOnViolation>
-                               <excludes>.git/**/*,target/**/*</excludes>
-                               <sourceDirectories>./src</sourceDirectories>
-                           </configuration>
-                           <executions>
-                               <execution>
-                                   <phase>validate</phase>
-                                   <goals>
-                                       <goal>check</goal>
-                                   </goals>
-                               </execution>
-                           </executions>
-                       </plugin>
-                       <plugin>
-                           <groupId>org.jacoco</groupId>
-                           <artifactId>jacoco-maven-plugin</artifactId>
-                           <version>${jacoco-maven-plugin.version}</version>
-                           <executions>
-                               <execution>
-                                   <id>pre-unit-tests</id>
-                                   <goals>
-                                       <goal>prepare-agent</goal>
-                                   </goals>
-                                   <configuration>
-                                       <!-- Sets the path to the file which contains the execution data. -->
+                               <!-- <violationSeverity>warning</violationSeverity>-->
+                              <configLocation>checkstyle.xml</configLocation>
+                              <failsOnError>true</failsOnError>
+                              <failOnViolation>true</failOnViolation>
+                              <excludes>.git/**/*,target/**/*</excludes>
+                              <sourceDirectories>./src</sourceDirectories>
+                          </configuration>
+                          <executions>
+                              <execution>
+                                  <phase>validate</phase>
+                                  <goals>
+                                      <goal>check</goal>
+                                  </goals>
+                              </execution>
+                          </executions>
+                      </plugin>
+                      <plugin>
+                          <groupId>org.jacoco</groupId>
+                          <artifactId>jacoco-maven-plugin</artifactId>
+                          <version>${jacoco-maven-plugin.version}</version>
+                          <executions>
+                              <execution>
+                                  <id>pre-unit-tests</id>
+                                  <goals>
+                                      <goal>prepare-agent</goal>
+                                  </goals>
+                                  <configuration>
+                                      <!-- Sets the path to the file which contains the execution data. -->
                                 <destFile>${jacoco.utReportFile}</destFile>
                             </configuration>
                         </execution>
