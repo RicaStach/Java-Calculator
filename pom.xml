@@ -19,9 +19,7 @@
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <maven-surefire-plugin.version>3.0.0-M4</maven-surefire-plugin.version>
 
-        <junit.version>4.13</junit.version>
-        <junit.jupiter.version>5.6.1</junit.jupiter.version>
-        <junit.vintage.version>5.6.1</junit.vintage.version>
+        <junit.jupiter.version>5.6.2</junit.jupiter.version>
 
         <!-- Checkstyle -->
         <maven-checkstyle.version>3.1.1</maven-checkstyle.version>
@@ -50,32 +48,8 @@
     <dependencies>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-api</artifactId>
+            <artifactId>junit-jupiter</artifactId>
             <version>${junit.jupiter.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-params</artifactId>
-            <version>${junit.jupiter.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>${junit.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-engine</artifactId>
-            <version>${junit.jupiter.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.junit.vintage</groupId>
-            <artifactId>junit-vintage-engine</artifactId>
-            <version>${junit.vintage.version}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
@@ -114,35 +88,35 @@
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-checkstyle-plugin</artifactId>
                     <version>${maven-checkstyle.version}</version>
-                           <configuration>
-                               <!-- <violationSeverity>warning</violationSeverity>-->
-                              <configLocation>checkstyle.xml</configLocation>
-                              <failsOnError>true</failsOnError>
-                              <failOnViolation>true</failOnViolation>
-                              <excludes>.git/**/*,target/**/*</excludes>
-                              <sourceDirectories>./src</sourceDirectories>
-                          </configuration>
-                          <executions>
-                              <execution>
-                                  <phase>validate</phase>
-                                  <goals>
-                                      <goal>check</goal>
-                                  </goals>
-                              </execution>
-                          </executions>
-                      </plugin>
-                      <plugin>
-                          <groupId>org.jacoco</groupId>
-                          <artifactId>jacoco-maven-plugin</artifactId>
-                          <version>${jacoco-maven-plugin.version}</version>
-                          <executions>
-                              <execution>
-                                  <id>pre-unit-tests</id>
-                                  <goals>
-                                      <goal>prepare-agent</goal>
-                                  </goals>
-                                  <configuration>
-                                      <!-- Sets the path to the file which contains the execution data. -->
+                    <configuration>
+                        <!-- <violationSeverity>warning</violationSeverity>-->
+                        <configLocation>checkstyle.xml</configLocation>
+                        <failsOnError>true</failsOnError>
+                        <failOnViolation>true</failOnViolation>
+                        <excludes>.git/**/*,target/**/*</excludes>
+                        <sourceDirectories>./src</sourceDirectories>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <phase>validate</phase>
+                            <goals>
+                                <goal>check</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+                <plugin>
+                    <groupId>org.jacoco</groupId>
+                    <artifactId>jacoco-maven-plugin</artifactId>
+                    <version>${jacoco-maven-plugin.version}</version>
+                    <executions>
+                        <execution>
+                            <id>pre-unit-tests</id>
+                            <goals>
+                                <goal>prepare-agent</goal>
+                            </goals>
+                            <configuration>
+                                <!-- Sets the path to the file which contains the execution data. -->
                                 <destFile>${jacoco.utReportFile}</destFile>
                             </configuration>
                         </execution>
@@ -165,7 +139,6 @@
                     <artifactId>maven-surefire-plugin</artifactId>
                     <version>${maven-surefire-plugin.version}</version>
                     <configuration>
-                        <!-- Force alphabetical order to have a reproducible build -->
                         <runOrder>alphabetical</runOrder>
                         <reportsDirectory>${junit.utReportFolder}</reportsDirectory>
                     </configuration>
