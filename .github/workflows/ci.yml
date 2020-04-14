@@ -25,4 +25,4 @@ jobs:
             - name: compile
               run: mvn -ntp compile -Dmaven.test.skip=true -Djacoco.skip=true -Dcheckstyle.skip=true
             - name: test and code coverage
-              run: mvn -ntp test -Dcheckstyle.skip=true
+              run: mvn -ntp test -Dcheckstyle.skip=true -Dpmd.skip=true

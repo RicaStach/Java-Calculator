@@ -12,8 +12,8 @@ package com.example.tool.internal;
 
 public class MathHelper {
 
-	public static int pow(int a, int b) {
-		return (int) Math.pow(a, b);
-	}
+  public static int pow(int a, int b) {
+    return (int) Math.pow(a, b);
+  }
 
 }

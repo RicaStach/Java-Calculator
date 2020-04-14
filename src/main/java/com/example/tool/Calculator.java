@@ -14,17 +14,16 @@ import com.example.tool.internal.MathHelper;
 
 public class Calculator {
 
-	public int add(int a,int b)
-	{
-		return a +b;
-	}
+  public int add(int a, int b) {
+    return a + b;
+  }
 
-	protected int mul(int a, int b) {
-		return a * b;
-	}
+  protected int mul(int a, int b) {
+    return a * b;
+  }
 
-	int pow(int a, int b) {
-		return MathHelper.pow(a, b);
-	}
+  int pow(int a, int b) {
+    return MathHelper.pow(a, b);
+  }
 
 }

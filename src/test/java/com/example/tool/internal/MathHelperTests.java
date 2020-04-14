@@ -10,30 +10,32 @@
 
 package com.example.tool.internal;
 
-import org.junit.jupiter.api.*;
-import org.junit.jupiter.params.*;
-import org.junit.jupiter.params.provider.*;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 @DisplayName("com.example.tool/com.example.tool.internal.MathHelperTests")
 class MathHelperTests {
 
-    @Test
-    void pow() {
-        Assertions.assertEquals(8, MathHelper.pow(2, 3), "2 ^ 3 should equal 8");
-    }
+  @Test
+  void pow() {
+    Assertions.assertEquals(8, MathHelper.pow(2, 3), "2 ^ 3 should equal 8");
+  }
 
-    @ParameterizedTest(name = "{0} ^ {1} = {2}")
-    @CsvSource({
-                    "0,   0,   1",
-                    "1,   0,   1",
-                    "2,   2,   4",
-                    "2,   3,   8",
-                    "2,   8, 256",
-                    "2,   9, 512"
-    })
-    void pow(int first, int second, int expectedResult) {
-        Assertions.assertEquals(expectedResult, MathHelper.pow(first, second),
-                     () -> first + " ^ " + second + " should equal " + expectedResult);
-    }
+  @ParameterizedTest(name = "{0} ^ {1} = {2}")
+  @CsvSource({
+          "0,   0,   1",
+          "1,   0,   1",
+          "2,   2,   4",
+          "2,   3,   8",
+          "2,   8, 256",
+          "2,   9, 512"
+  })
+  void pow(int first, int second, int expectedResult) {
+    Assertions.assertEquals(expectedResult, MathHelper.pow(first, second),
+            () -> first + " ^ " + second + " should equal " + expectedResult);
+  }
 
 }
